@@ -1,0 +1,378 @@
+
+chords on a 5-key board
+5: 1
+4: 5
+3: 8
+2: 10
+1: 5
+
+10000
+01000
+00100
+00010
+00001
+
+11000
+10100
+10010
+10001
+01100
+01010
+01001
+00110
+00101
+00011
+
+11100
+11010
+11001
+10110
+10101
+10011
+01011
+00111
+
+11110
+11101
+11011
+10111
+01111
+
+11111
+
+29 per hand, 58 per both
+
+1 0000
+
+0 1000
+0 0100
+0 0010
+0 0001
+
+1 1000
+1 0100
+1 0010
+1 0001
+
+0 1100
+0 1010
+0 1001
+0 0110
+0 0101 X
+0 0011
+
+1 1100
+1 1010
+1 1001
+1 0110
+1 0101 X
+1 0011
+
+0 1011
+0 0111
+
+1 1110
+1 1101 X
+1 1011 ~
+1 0111
+
+0 1111
+
+1 1111
+
+26~25 good chords, 50~52 total
+
+
+1 0000
+2 0000
+
+0 1000
+0 0100
+0 0010
+0 0001
+
+1 1000
+1 0100
+1 0010
+1 0001
+2 1000
+2 0100
+2 0010
+2 0001
+
+0 1100
+0 1010
+0 1001
+0 0110
+0 0101 X
+0 0011
+
+1 1100
+1 1010
+1 1001
+1 0110
+1 0101 X
+1 0011
+2 1100
+2 1010
+2 1001
+2 0110
+2 0101 X
+2 0011
+
+0 1011
+0 0111
+
+1 1110
+1 1101 X
+1 1011 ~
+1 0111
+2 1110
+2 1101 X
+2 1011 ~
+2 0111
+
+0 1111
+
+1 1111
+2 1111
+
+39~37 with two thumb keys, 78~74 total
+
+
+
+
+(()=>{
+  let num = '10.2'
+  let [whole,frac] = num.split('.');
+  if (frac) {
+    let e = frac.length
+  }
+})()
+
+
+
+(length
+ '("a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
+"A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
+"1" "2" "3" "4" "5" "6" "7" "8" "9" "0"
+"!" "@" "#" "$" "%" "^" "&" "*" "(" ")"
+"`" "-" "=" "[" "]" "\" ";" "'" "," "." "/"
+"~" "_" "+" "{" "}" "|" ":" "\"" "<" ">" "?"
+"BACK" "TAB" "RET" "SPACE" "DEL" "HOME" "END" "PGUP" "PGDN"
+"F1" "F2" "F3" "F4" "F5" "F6" "F7" "F8" "F9" "F10" "F11" "F12"))
+
+110 symbols total:
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+1 2 3 4 5 6 7 8 9 0
+! @ # $ % ^ & * "(" ")"
+` - = [ ] \ ; ' , . /
+~ _ + { } | : \" < > ?
+BACK TAB RET SPACE DEL HOME END PGUP PGDN
+F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12
+
+
+68 symbols not counting shifted:
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+1 2 3 4 5 6 7 8 9 0
+` - = [ ] \ ; ' , . /
+BACK TAB RET SPACE DEL HOME END PGUP PGDN
+F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12
+4 modifiers:
+SHIFT CTRL ALT META
+
+1 2 3 4 5 6 7 8
+12 13 14 15 16 17 18
+23 24 25 26 27 28
+34 35 36 37 38
+45 46 47 48
+56 57 58
+67 68
+78
+
+123 124 125 126 127 128
+134 135 136 137 138
+145 146 147 148
+156 157 158
+167 168
+178
+
+234 235 236 237 238
+245 246 247 248
+256 257 258
+267 268
+278
+
+345 346 347 348
+356 357 358
+367 368
+378
+
+
+(defun factorial (n) (string-to-number (calc-eval (format "%s!" n))))
+factorial
+
+factorial
+(factorial 3)
+6
+
+
+"6"
+
+
+(defun --c (n r) (/ (factorial n) (* (factorial r) (factorial (- n r)))))
+--c
+(--c 5 5)
+1
+5
+10
+10
+5
+
+(->>
+ '(1 2 3 4 5 6 7 8)
+ (--map (--c 8 it))
+ (--reduce (+ acc it)))
+255
+
+31
+
+15
+
+
+
+what if I change around this chorded idea to be a sequential thing?
+So its more like how emacs keybindings work?
+rather than ---x_xx--, it would be:
+---x_----, ----_x---, ----_-x--
+you can get 64 out of an 8-key with single presses, 100 out of a 10 key single
+if you allow chords to access layers, then you could get lots more
+8-key with max 2-chords
+Layers:
+1, 2, 3, 4, 5, 6, 7, 8
+12, 13, 14, 15, 16, 17, 18
+23, 24, 25, 26, 27, 28
+34, 35, 36, 37, 38
+45, 46, 47, 48
+56, 57, 58
+67, 68
+78
+that's 32 layers
+for 256 total keys
+
+E 	11.1607% 	56.88
+A 	8.4966% 	43.31
+R 	7.5809% 	38.64
+I 	7.5448% 	38.45
+O 	7.1635% 	36.51
+T 	6.9509% 	35.43
+N 	6.6544% 	33.92
+S 	5.7351% 	29.23
+L 	5.4893% 	27.98
+C 	4.5388% 	23.13
+U 	3.6308% 	18.51
+D 	3.3844% 	17.25
+P 	3.1671% 	16.14
+M 	3.0129% 	15.36
+H 	3.0034% 	15.31
+G 	2.4705% 	12.59
+B 	2.0720% 	10.56
+F 	1.8121% 	9.24
+Y 	1.7779% 	9.06
+W 	1.2899% 	6.57
+K 	1.1016% 	5.61
+V 	1.0074% 	5.13
+X 	0.2902% 	1.48
+Z 	0.2722% 	1.39
+J 	0.1965% 	1.00
+Q 	0.1962% 	(1)
+
+fjdksla;
+1: 0001_0000
+2: 0010_0000
+3: 0100_0000
+4: 1000_0000
+5: 0000_1000
+6: 0000_0100
+7: 0000_0010
+8: 0000_0001
+
+E f f
+A j j
+R f j
+I j f
+O
+T
+N
+S
+L
+C
+U
+D
+P
+M
+H
+G
+B
+F
+Y
+W
+K
+V
+X
+Z
+J
+Q
+
+/
+Q=quot D=dquo
+Thumb keys:
+x. BACK
+.x SPACE
+xx RET
+
+1: (...x_....)
+ploe_rnuh
+,.
+
+2: (...._x...)
+mcta_isdg
+?!
+
+3: (..x._....)
+Djkb_yx
+HOME END
+
+4: (...._.x..)
+Qqvf_wz:;
+PGUP PGDN
+
+5: (.x.._....)
+@#$%_^&*
+
+6: (...._..x.)
+1234_5+-=
+
+7: (x..._....)
+<>{}_()[]
+
+8: (...._...x)
+6789_0_
+
+9: (...x_x...)
+
+
+10: (..xx_....)
+`~\|_F1,F2,F3,F4
+
+11: (...._xx..)
+F1,F2,F3,F4_F5,F6,F7,F8
+
+(xxxx_....)
+reset sequence
+
+
+startup, root layer selected
+key f is pressed, f maps to layer 3, layer 3 is selected
+key k is pressed, k maps to symbol n, output is sent, root layer is selected
