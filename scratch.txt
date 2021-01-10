@@ -376,3 +376,61 @@ reset sequence
 startup, root layer selected
 key f is pressed, f maps to layer 3, layer 3 is selected
 key k is pressed, k maps to symbol n, output is sent, root layer is selected
+
+
+jf e
+jd r
+js o
+ja n
+
+fj a
+fk i
+fl t
+f; s
+
+kf l
+kd u
+ks p
+ka h
+
+dj c
+dk d
+dl m
+d; g
+
+lf b
+ld y
+ls k
+la x
+
+sj f
+sk w
+sl v
+s; z
+
+;f
+;d
+;s
+;a q
+
+aj
+ak
+al
+a; j
+
+jj
+ff
+kk
+dd
+ll
+ss
+;;
+aa
+
+jk
+jl
+j;
+
+fd
+fs
+fa
